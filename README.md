@@ -20,28 +20,3 @@ samples, guidance on mobile development, and a full API reference.
 
 
 
-
-TÓPICOS PARA ABORDAR NO TCC
-
-- CLEAN CODE - ARQUITETURA CLEAN
-- Stateful X Stateless
-- Gerência de Estado
-    - Change Notifier
-    - Stream
-    - Listenable
-    - SetState
-    - ValueNotifier
-- Componentização e Decomposição
-    - PageWidget
-    - Componentes
-    - Widgets
-    - Criação de Telas
-    - Funções em Widgets
-- Separação de Responsabilidade
-- Desenho e Criação de Serviços
-    - Singletons
-    - Serviços Compartilhados
-    - Serviços Unificados
-- Padrões de Projetos
-    - MVC
-    - MVVM
