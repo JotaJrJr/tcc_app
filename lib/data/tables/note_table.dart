@@ -5,4 +5,7 @@ class NoteTable extends Table {
   TextColumn get title => text().named('TITLE')();
   TextColumn get content => text().named('CONTENT')();
   IntColumn get createdAt => integer().named('CREATED_AT')();
+
+  @override
+  Set<Column> get primaryKey => {id};
 }
