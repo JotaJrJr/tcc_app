@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app_tcc/benchmarks/benchmark_isolates_page.dart';
 import 'package:todo_app_tcc/benchmarks/benchmark_page.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'TODO APP TCC',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: BenchmarkPage(),
+      //   home: BenchmarkPage(),
+      home: BenchmarkPageWithIsolates(),
     );
   }
 }
