@@ -2,60 +2,9 @@ import 'dart:async';
 import 'dart:isolate';
 import 'package:flutter/material.dart';
 
-class BenchmarkPageWithIsolates extends StatelessWidget {
-  const BenchmarkPageWithIsolates({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: DefaultTabController(
-        length: 8,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Benchmark with Isolates'),
-            bottom: const TabBar(
-              isScrollable: true,
-              tabs: [
-                Tab(text: 'Stateless\nListView'),
-                Tab(text: 'Stateless\nBuilder'),
-                Tab(text: 'Stateless\nSeparated'),
-                Tab(text: 'Stateless\nColumn'),
-                Tab(text: 'Stateful\nListView'),
-                Tab(text: 'Stateful\nBuilder'),
-                Tab(text: 'Stateful\nSeparated'),
-                Tab(text: 'Stateful\nColumn'),
-              ],
-            ),
-          ),
-          body: TabBarView(
-            children: [
-              // Stateless ListView
-              BenchmarkListIsolate(listFactory: () => MakeStatelessIsolate(child: makeListViewIsolate())),
-              // Stateless Builder
-              BenchmarkListIsolate(listFactory: () => MakeStatelessIsolate(child: makeBuilderIsolate())),
-              // Stateless Separated
-              BenchmarkListIsolate(listFactory: () => MakeStatelessIsolate(child: makeSeparatedIsolate())),
-              // Stateless Column
-              BenchmarkListIsolate(listFactory: () => MakeStatelessIsolate(child: makeColumnIsolate())),
-              // Stateful ListView
-              BenchmarkListIsolate(listFactory: () => MakeStatefulIsolate(child: makeListViewIsolate())),
-              // Stateful Builder
-              BenchmarkListIsolate(listFactory: () => MakeStatefulIsolate(child: makeBuilderIsolate())),
-              // Stateful Separated
-              BenchmarkListIsolate(listFactory: () => MakeStatefulIsolate(child: makeSeparatedIsolate())),
-              // Stateful Column
-              BenchmarkListIsolate(listFactory: () => MakeStatefulIsolate(child: makeColumnIsolate())),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class BenchmarkListIsolate extends StatefulWidget {
   final Widget Function() listFactory;
-  const BenchmarkListIsolate({Key? key, required this.listFactory}) : super(key: key);
+  const BenchmarkListIsolate({super.key, required this.listFactory});
 
   @override
   State<BenchmarkListIsolate> createState() => _BenchmarkListIsolateState();
@@ -98,7 +47,7 @@ class _BenchmarkListIsolateState extends State<BenchmarkListIsolate> {
 
 class MakeStatelessIsolate extends StatelessWidget {
   final Widget child;
-  const MakeStatelessIsolate({Key? key, required this.child}) : super(key: key);
+  const MakeStatelessIsolate({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) => child;
@@ -106,7 +55,7 @@ class MakeStatelessIsolate extends StatelessWidget {
 
 class MakeStatefulIsolate extends StatefulWidget {
   final Widget child;
-  const MakeStatefulIsolate({Key? key, required this.child}) : super(key: key);
+  const MakeStatefulIsolate({super.key, required this.child});
 
   @override
   State<MakeStatefulIsolate> createState() => _MakeStatefulIsolateState();

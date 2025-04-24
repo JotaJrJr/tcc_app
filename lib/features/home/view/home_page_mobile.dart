@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:todo_app_tcc/domain/use_cases/update_note.dart';
 import 'package:todo_app_tcc/features/home/home_view_model.dart';
 import 'package:todo_app_tcc/features/note_edit_add_page/note_edit_add_page.dart';
-import 'package:todo_app_tcc/features/note_edit_add_page/view/note_edit_add_page_mobile.dart';
 
 import '../../../domain/entities/note.dart';
 import '../../../domain/use_cases/add_note.dart';
@@ -42,13 +41,11 @@ class HomePageMobile extends StatelessWidget {
                           MaterialPageRoute(
                             builder:
                                 (ctx) => Provider<NoteEditAddViewModel>(
-                                  // aqui pegamos AddNote e UpdateNote que você já
-                                  // injetou lá no main.dart
                                   create:
                                       (_) => NoteEditAddViewModel(
                                         addNote: ctx.read<AddNote>(),
                                         updateNote: ctx.read<UpdateNote>(),
-                                        original: note, // passamos a nota pra editar
+                                        original: note,
                                       ),
                                   child: const NoteEditAddPage(),
                                 ),
@@ -62,7 +59,6 @@ class HomePageMobile extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        // onPressed: () => Navigator.pushNamed(context, '/note').then((_) => viewModel.loadNotes()),
         onPressed:
             () => Navigator.push(
               context,
@@ -75,7 +71,6 @@ class HomePageMobile extends StatelessWidget {
                     ),
               ),
             ).then((_) => viewModel.loadNotes()),
-
         child: const Icon(Icons.add),
       ),
     );

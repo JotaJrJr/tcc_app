@@ -6,6 +6,7 @@ part 'note_dao.g.dart';
 
 @DriftAccessor(tables: [NoteTable])
 class NoteDao extends DatabaseAccessor<AppDb> with _$NoteDaoMixin {
+  // ignore: unused_field
   final AppDb _db;
 
   NoteDao(this._db) : super(_db);

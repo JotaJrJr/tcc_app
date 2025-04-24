@@ -8,7 +8,6 @@ import 'package:todo_app_tcc/features/home/home_page.dart';
 import 'domain/use_cases/add_note.dart';
 import 'domain/use_cases/delete_note.dart';
 import 'domain/use_cases/get_all_notes.dart';
-import 'domain/use_cases/get_note_by_id.dart';
 import 'domain/use_cases/update_note.dart';
 
 void main() {
@@ -25,7 +24,6 @@ void main() {
         ProxyProvider<NoteRepositoryImpl, AddNote>(update: (_, repo, __) => AddNote(repo)),
         ProxyProvider<NoteRepositoryImpl, UpdateNote>(update: (_, repo, __) => UpdateNote(repo)),
 
-        // Agora injetamos o ViewModel direto, e já carregamos as notas:
         Provider<HomeViewModel>(
           create: (ctx) {
             final vm = HomeViewModel(ctx.read<GetAllNotes>(), ctx.read<DeleteNote>());
