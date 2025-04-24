@@ -115,12 +115,17 @@ class _BenchmarkListState extends State<BenchmarkList> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text("Build time: $_buildMs ms", style: const TextStyle(fontSize: 20, color: Colors.blue)),
-        const Divider(),
-        Expanded(child: widget.listFactory()),
-      ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(title: Text(widget.listFactory().toString())),
+        body: Column(
+          children: [
+            Text("Build time: $_buildMs ms", style: const TextStyle(fontSize: 20, color: Colors.blue)),
+            const Divider(),
+            Expanded(child: widget.listFactory()),
+          ],
+        ),
+      ),
     );
   }
 }

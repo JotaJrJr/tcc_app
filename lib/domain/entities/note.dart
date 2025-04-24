@@ -1,3 +1,5 @@
+import 'package:uuid/uuid.dart';
+
 class Note {
   final String? id;
   final String? title;
@@ -9,7 +11,7 @@ class Note {
   factory Note.create({String? id, String? title, String? content}) {
     final now = DateTime.now().millisecondsSinceEpoch;
 
-    return Note(id: id, title: title, content: content, createdAt: now);
+    return Note(id: Uuid().v4(), title: title, content: content, createdAt: now);
   }
 
   Note copyWith({String? id, String? title, String? content}) {
