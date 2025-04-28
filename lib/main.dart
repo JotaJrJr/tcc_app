@@ -3,12 +3,13 @@ import 'package:provider/provider.dart';
 import 'package:todo_app_tcc/data/app_db.dart';
 import 'package:todo_app_tcc/data/repositories/note_repository_impl.dart';
 import 'package:todo_app_tcc/features/home/home_view_model.dart';
-import 'package:todo_app_tcc/features/home/home_page.dart';
 
+import 'benchmarks/benchmark_page_list.dart';
 import 'domain/use_cases/add_note.dart';
 import 'domain/use_cases/delete_note.dart';
 import 'domain/use_cases/get_all_notes.dart';
 import 'domain/use_cases/update_note.dart';
+import 'features/home/home_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
       title: 'TODO App TCC',
       theme: ThemeData.from(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
       home: HomePage(),
+      //   home: const BenchmarkPageList(),
     );
   }
 }
